@@ -1,0 +1,29 @@
+# Maven
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+
+# IntelliJ / IDEA
+*.iml
+.idea/
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+
+# Build
+/build/
+
+# Java
+*.class
+
+# Test reports
+/surefire-reports/
+/failsafe-reports/

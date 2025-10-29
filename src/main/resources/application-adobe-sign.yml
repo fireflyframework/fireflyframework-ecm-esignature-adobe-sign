@@ -1,0 +1,13 @@
+# Firefly ECM eSignature Adobe Sign Configuration
+
+firefly:
+  ecm:
+    features:
+      esignature: true
+    esignature:
+      provider: adobe-sign
+    adapter:
+      adobe-sign:
+        client-id: ${ADOBE_SIGN_CLIENT_ID}
+        client-secret: ${ADOBE_SIGN_CLIENT_SECRET}
+        refresh-token: ${ADOBE_SIGN_REFRESH_TOKEN}

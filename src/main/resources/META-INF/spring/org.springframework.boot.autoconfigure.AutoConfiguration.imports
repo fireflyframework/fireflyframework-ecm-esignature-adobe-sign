@@ -1,1 +1,1 @@
-com.firefly.ecm.adapter.adobesign.AdobeSignAutoConfiguration
+org.fireflyframework.ecm.adapter.adobesign.AdobeSignAutoConfiguration

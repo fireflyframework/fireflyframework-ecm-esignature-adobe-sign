@@ -4,7 +4,7 @@
 [![Java](https://img.shields.io/badge/Java-21+-orange.svg)](https://openjdk.java.net/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen.svg)](https://spring.io/projects/spring-boot)
 
-Adobe Sign eSignature adapter for Firefly lib-ecm. Provides envelope lifecycle operations and integrates via the lib-ecm hexagonal ports.
+Adobe Sign eSignature adapter for Firefly fireflyframework-ecm. Provides envelope lifecycle operations and integrates via the fireflyframework-ecm hexagonal ports.
 
 ## Features
 - Envelope lifecycle: create, get, update, send, void, archive (basic mapping)
@@ -16,8 +16,8 @@ Adobe Sign eSignature adapter for Firefly lib-ecm. Provides envelope lifecycle o
 ## Installation
 ```xml
 <dependency>
-  <groupId>com.firefly</groupId>
-  <artifactId>lib-ecm-esignature-adobe-sign</artifactId>
+  <groupId>org.fireflyframework</groupId>
+  <artifactId>fireflyframework-ecm-esignature-adobe-sign</artifactId>
   <version>${firefly.version}</version>
 </dependency>
 ```

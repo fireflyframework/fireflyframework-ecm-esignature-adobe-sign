@@ -1,16 +1,16 @@
 /*
  * Copyright (c) 2024 Firefly Software Solutions Inc.
  */
-package com.firefly.ecm.adapter.adobesign;
+package org.fireflyframework.ecm.adapter.adobesign;
 
-import com.firefly.core.ecm.adapter.AdapterFeature;
-import com.firefly.core.ecm.adapter.EcmAdapter;
-import com.firefly.core.ecm.domain.model.esignature.SignatureEnvelope;
-import com.firefly.core.ecm.domain.enums.esignature.EnvelopeStatus;
-import com.firefly.core.ecm.domain.enums.esignature.SignatureProvider;
-import com.firefly.core.ecm.port.esignature.SignatureEnvelopePort;
-import com.firefly.core.ecm.port.document.DocumentContentPort;
-import com.firefly.core.ecm.port.document.DocumentPort;
+import org.fireflyframework.ecm.adapter.AdapterFeature;
+import org.fireflyframework.ecm.adapter.EcmAdapter;
+import org.fireflyframework.ecm.domain.model.esignature.SignatureEnvelope;
+import org.fireflyframework.ecm.domain.enums.esignature.EnvelopeStatus;
+import org.fireflyframework.ecm.domain.enums.esignature.SignatureProvider;
+import org.fireflyframework.ecm.port.esignature.SignatureEnvelopePort;
+import org.fireflyframework.ecm.port.document.DocumentContentPort;
+import org.fireflyframework.ecm.port.document.DocumentPort;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.resilience4j.circuitbreaker.CircuitBreaker;

@@ -5,18 +5,18 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.firefly</groupId>
-        <artifactId>lib-parent-pom</artifactId>
+        <groupId>org.fireflyframework</groupId>
+        <artifactId>fireflyframework-parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
         <relativePath/>
     </parent>
 
-    <groupId>com.firefly</groupId>
-    <artifactId>lib-ecm-esignature-adobe-sign</artifactId>
+    <groupId>org.fireflyframework</groupId>
+    <artifactId>fireflyframework-ecm-esignature-adobe-sign</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Firefly ECM eSignature - Adobe Sign</name>
+    <name>Firefly Framework - ECM eSignature - Adobe Sign</name>
     <description>Adobe Sign eSignature adapter for Firefly ECM, as a standalone provider library.</description>
 
     <properties>
@@ -26,8 +26,8 @@
     <dependencies>
         <!-- ECM Ports -->
         <dependency>
-            <groupId>com.firefly</groupId>
-            <artifactId>lib-ecm-core</artifactId>
+            <groupId>org.fireflyframework</groupId>
+            <artifactId>fireflyframework-ecm</artifactId>
             <version>${project.version}</version>
         </dependency>
 

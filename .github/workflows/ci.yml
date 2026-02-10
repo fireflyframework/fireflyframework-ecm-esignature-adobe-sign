@@ -13,5 +13,9 @@ on:
 jobs:
   build:
     uses: fireflyframework/.github/.github/workflows/java-ci.yml@main
+    permissions:
+      packages: read
+      contents: read
+      actions: write
     with:
       java-version: '25'

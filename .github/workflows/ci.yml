@@ -4,8 +4,6 @@ on:
     branches: [develop]
   pull_request:
     branches: [develop, main]
-  pull_request_target:
-    branches: [develop, main]
   workflow_dispatch:
     inputs:
       triggered-by:
@@ -14,8 +12,6 @@ on:
         type: string
 jobs:
   build:
-    if: github.event_name \!= 'pull_request_target' || github.actor == 'dependabot[bot]'
     uses: fireflyframework/.github/.github/workflows/java-ci.yml@main
     with:
       java-version: '25'
-      checkout-ref: ${{ github.event_name == 'pull_request_target' && github.event.pull_request.head.sha || '' }}

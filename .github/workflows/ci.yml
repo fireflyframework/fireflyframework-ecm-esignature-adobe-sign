@@ -19,3 +19,4 @@ jobs:
       actions: write
     with:
       java-version: '25'
+    secrets: inherit

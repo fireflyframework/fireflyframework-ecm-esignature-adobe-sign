@@ -1,0 +1,12 @@
+name: Dependabot CI
+on:
+  pull_request_target:
+    branches: [develop, main]
+jobs:
+  build:
+    if: github.actor == 'dependabot[bot]'
+    uses: fireflyframework/.github/.github/workflows/java-ci.yml@main
+    with:
+      java-version: '25'
+      checkout-ref: ${{ github.event.pull_request.head.sha }}
+      trigger-downstream: false

@@ -1,0 +1,12 @@
+name: Release
+on:
+  push:
+    tags: ['v*']
+jobs:
+  release:
+    uses: fireflyframework/.github/.github/workflows/java-release.yml@main
+    with:
+      java-version: '25'
+    permissions:
+      contents: write
+      packages: write

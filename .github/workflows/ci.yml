@@ -1,0 +1,11 @@
+name: CI
+on:
+  push:
+    branches: [develop]
+  pull_request:
+    branches: [develop, main]
+jobs:
+  build:
+    uses: fireflyframework/.github/.github/workflows/java-ci.yml@main
+    with:
+      java-version: '25'

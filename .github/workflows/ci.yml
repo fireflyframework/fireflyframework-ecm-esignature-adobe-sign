@@ -2,8 +2,22 @@ name: CI
 on:
   push:
     branches: [develop]
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+      - 'tutorials/**'
+      - 'examples/**/README.md'
+      - 'LICENSE'
+      - '.gitignore'
   pull_request:
     branches: [develop, main]
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+      - 'tutorials/**'
+      - 'examples/**/README.md'
+      - 'LICENSE'
+      - '.gitignore'
   workflow_dispatch:
     inputs:
       triggered-by:
@@ -13,10 +27,5 @@ on:
 jobs:
   build:
     uses: fireflyframework/.github/.github/workflows/java-ci.yml@main
-    permissions:
-      packages: read
-      contents: read
-      actions: write
     with:
       java-version: '25'
-    secrets: inherit

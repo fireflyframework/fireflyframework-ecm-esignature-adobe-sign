@@ -1,81 +1,95 @@
-# Firefly ECM eSignature – Adobe Sign
+# Firefly Framework - ECM eSignature - Adobe Sign
 
 [![CI](https://github.com/fireflyframework/fireflyframework-ecm-esignature-adobe-sign/actions/workflows/ci.yml/badge.svg)](https://github.com/fireflyframework/fireflyframework-ecm-esignature-adobe-sign/actions/workflows/ci.yml)
-
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
-[![Java](https://img.shields.io/badge/Java-21+-orange.svg)](https://openjdk.java.net/)
-[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen.svg)](https://spring.io/projects/spring-boot)
+[![Java](https://img.shields.io/badge/Java-21%2B-orange.svg)](https://openjdk.org)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-green.svg)](https://spring.io/projects/spring-boot)
 
-Adobe Sign eSignature adapter for Firefly fireflyframework-ecm. Provides envelope lifecycle operations and integrates via the fireflyframework-ecm hexagonal ports.
+> Adobe Sign eSignature adapter for Firefly ECM.
+
+---
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Features](#features)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Quick Start](#quick-start)
+- [Configuration](#configuration)
+- [Documentation](#documentation)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Overview
+
+This module implements the Firefly ECM e-signature ports using Adobe Sign as the provider. It provides `AdobeSignSignatureEnvelopeAdapter` which integrates with Adobe Sign's REST API for creating signature envelopes, managing signature requests, and tracking signing status.
+
+The adapter auto-configures via `AdobeSignAutoConfiguration` and is activated by including this module on the classpath alongside the ECM core module.
 
 ## Features
-- Envelope lifecycle: create, get, update, send, void, archive (basic mapping)
-- OAuth refresh-token authentication and token caching
-- Reactive WebClient with configurable timeouts and retries
-- Spring Boot conditional auto-wiring via `firefly.ecm.esignature.provider=adobe-sign`
-- Resilience hooks (circuit breaker/retry) ready for injection
+
+- Adobe Sign integration for e-signature envelope management
+- Spring Boot auto-configuration for seamless activation
+- Implements Firefly ECM SignatureEnvelopePort
+- Configurable via application properties
+- Standalone provider library (include alongside fireflyframework-ecm)
+
+## Requirements
+
+- Java 21+
+- Spring Boot 3.x
+- Maven 3.9+
+- Adobe Sign account and API credentials
 
 ## Installation
+
 ```xml
 <dependency>
-  <groupId>org.fireflyframework</groupId>
-  <artifactId>fireflyframework-ecm-esignature-adobe-sign</artifactId>
-  <version>${firefly.version}</version>
+    <groupId>org.fireflyframework</groupId>
+    <artifactId>fireflyframework-ecm-esignature-adobe-sign</artifactId>
+    <version>26.01.01</version>
 </dependency>
 ```
 
+## Quick Start
+
+The adapter is automatically activated when included on the classpath with the ECM core module:
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>org.fireflyframework</groupId>
+        <artifactId>fireflyframework-ecm</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.fireflyframework</groupId>
+        <artifactId>fireflyframework-ecm-esignature-adobe-sign</artifactId>
+    </dependency>
+</dependencies>
+```
+
 ## Configuration
+
 ```yaml
 firefly:
   ecm:
-    enabled: true
-    features:
-      esignature: true
     esignature:
-      provider: adobe-sign
-    adapter:
       adobe-sign:
-        client-id: ${ADOBE_SIGN_CLIENT_ID}
-        client-secret: ${ADOBE_SIGN_CLIENT_SECRET}
-        refresh-token: ${ADOBE_SIGN_REFRESH_TOKEN}
-        # optional
-        base-url: https://api.na1.adobesign.com
-        api-version: v6
-        connection-timeout: 30s
-        read-timeout: 60s
-        max-retries: 3
-        token-expiration: 3600
-        default-email-subject: "Please sign this document"
-        default-email-message: "Please review and sign the attached document(s)."
-        webhook-url: ${ADOBE_SIGN_WEBHOOK_URL:}
-        webhook-secret: ${ADOBE_SIGN_WEBHOOK_SECRET:}
-        enable-embedded-signing: false
-        return-url: ${ADOBE_SIGN_RETURN_URL:}
-        enable-document-retention: true
-        document-retention-days: 365
-        enable-reminders: true
-        reminder-frequency-days: 3
+        api-access-point: https://api.adobesign.com
+        integration-key: your-integration-key
 ```
 
-Notes
-- Embedded signing URL is currently not implemented; `getSigningUrl` throws `UnsupportedOperationException`.
-- Map of documents/participants in requests is minimal; extend as needed in your service layer.
+## Documentation
 
-## Usage
-```java
-@Autowired SignatureEnvelopePort envelopePort;
-SignatureEnvelope draft = SignatureEnvelope.builder()
-    .title("NDA")
-    .description("Please sign")
-    .build();
-Mono<SignatureEnvelope> created = envelopePort.createEnvelope(draft);
-```
+No additional documentation available for this project.
 
-## Security
-- Provide secrets via environment variables or a secret manager; avoid placing raw tokens in source control.
+## Contributing
 
-## Testing
-- Includes a Spring Boot smoke test that verifies the adapter bean loads with the provider set to `adobe-sign`.
+Contributions are welcome. Please read the [CONTRIBUTING.md](CONTRIBUTING.md) guide for details on our code of conduct, development process, and how to submit pull requests.
 
 ## License
-Apache 2.0
+
+Copyright 2024-2026 Firefly Software Solutions Inc.
+
+Licensed under the Apache License, Version 2.0. See [LICENSE](LICENSE) for details.

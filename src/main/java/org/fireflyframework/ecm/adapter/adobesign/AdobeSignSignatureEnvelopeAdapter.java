@@ -19,10 +19,8 @@ import io.github.resilience4j.retry.Retry;
 import io.github.resilience4j.reactor.retry.RetryOperator;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -45,8 +43,6 @@ import java.util.concurrent.ConcurrentHashMap;
     requiredProperties = {"client-id", "client-secret", "refresh-token"},
     optionalProperties = {"base-url", "api-version", "webhook-url", "webhook-secret", "return-url"}
 )
-@Component
-@ConditionalOnProperty(name = "firefly.ecm.esignature.provider", havingValue = "adobe-sign")
 public class AdobeSignSignatureEnvelopeAdapter implements SignatureEnvelopePort {
 
     private final WebClient webClient;

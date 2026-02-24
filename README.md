@@ -48,7 +48,7 @@ The adapter auto-configures via `AdobeSignAutoConfiguration` and is activated by
 <dependency>
     <groupId>org.fireflyframework</groupId>
     <artifactId>fireflyframework-ecm-esignature-adobe-sign</artifactId>
-    <version>26.02.06</version>
+    <version>26.02.07</version>
 </dependency>
 ```
 

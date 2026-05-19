@@ -1,0 +1,23 @@
+name: Publish to Maven Central
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      wait-max-time:
+        description: 'Sonatype Central polling wait time in seconds (default 3600)'
+        required: false
+        default: '3600'
+
+jobs:
+  maven-central:
+    uses: fireflyframework/.github/.github/workflows/java-publish-maven-central.yml@main
+    with:
+      java-version: '25'
+      wait-max-time: ${{ inputs.wait-max-time || '3600' }}
+    permissions:
+      contents: read
+      packages: read
+    secrets: inherit
+
